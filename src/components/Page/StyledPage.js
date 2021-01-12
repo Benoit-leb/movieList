@@ -3,7 +3,10 @@ import theme from "../../styles/theme.js";
 
 const StyledPage = styled.div`
   max-width: ${theme.maxWidth};
-  margin: 0 auto;
+  margin: 0 2rem;
+  @media(min-width: ${theme.md}){
+      margin: 0 auto;
+    }
   #react-paginate ul {
     display: flex;
     padding-left: 15px;

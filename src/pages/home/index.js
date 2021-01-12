@@ -34,18 +34,21 @@ const Home = () => {
 
    return(
      <React.Fragment>
-      <Multiselect
-        options={categoriesList}
-        selectedValues={currentCategory}
-        onSelect={(list) => dispatch(setCurrentCategory(list))}
-        onRemove={(list) => dispatch(setCurrentCategory(list))}
-        displayValue="name"
-      />
-       <StyledHome className="home-container">
-        <div className="row start-xs">
-          {movieList.map((el) => {
-            return (<MovieItem key={el.id} item={el}/>)
-          })}
+       <StyledHome>
+        <Multiselect
+          options={categoriesList}
+          selectedValues={currentCategory}
+          onSelect={(list) => dispatch(setCurrentCategory(list))}
+          onRemove={(list) => dispatch(setCurrentCategory(list))}
+          displayValue="name"
+        />
+        <div className="list-container">
+          <div className="row start-xs">
+
+            {movieList.map((el) => {
+              return (<MovieItem key={el.id} item={el}/>)
+            })}
+          </div>
         </div>
         <div id="react-paginate" className="row center-xs">
           <ReactPaginate

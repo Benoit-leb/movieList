@@ -8,21 +8,16 @@ const StyledMovieItem = styled.div`
   margin: 5px;
   & .title{
     font-weight: bold;
-    font-size:13px;
-    @media(min-width: ${theme.sm}){
-      font-size:16px;
-    }
+    font-size:16px;
   }
   & .category{
     font-style: italic;
-    font-size:13px;
-    @media(min-width: ${theme.sm}){
-      font-size:16px;
-    }
+    font-size:16px;
+    margin-bottom:2rem;
   }
   & .cross{
-    width:20px;
-    height:20px;
+    width:1rem;
+    height:1rem;
     &-container{
       cursor: pointer;
       position: absolute;
@@ -31,8 +26,8 @@ const StyledMovieItem = styled.div`
     }
   }
   & svg{
-    width:20px;
-    height:20px;
+    width:2rem;
+    height:2rem;
     &.more{
       fill:blue;
     }
