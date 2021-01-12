@@ -32,10 +32,6 @@ const Home = () => {
     dispatch(setCurrentList());
   }, [movieListRef, currentCategory, perPage, currentPage, dispatch])
 
-  const onPageChange = (page) => {
-    dispatch(setCurrentPage(page.selected));
-  };
-
    return(
      <React.Fragment>
       <Multiselect
@@ -57,7 +53,7 @@ const Home = () => {
             pageRangeDisplayed={null}
             previousLabel={"prec"}
             nextLabel={"suiv"}
-            onPageChange={(x) => onPageChange(x)}
+             onPageChange={(x) => dispatch(setCurrentPage(x.selected))}
             initialPage={0}
           />
         </div>
