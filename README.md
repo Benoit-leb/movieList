@@ -1,6 +1,6 @@
 # movieList
 
-react
-redux
-styled component
-dark mode
+- react
+- redux
+- styled component
+- dark mode

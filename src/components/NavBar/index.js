@@ -1,9 +1,6 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 import StyledNavbar from "./StyledNavbar";
-import {UseDarkModeButton} from "../../features/useDarkMode";
-
-
+import UseDarkModeButton from "../../app/features/useDarkMode/UseDarkModeButton";
 
 const NavBar = () => {
   
@@ -11,7 +8,7 @@ const NavBar = () => {
     <React.Fragment>
       <StyledNavbar className="row middle-xs end-xs">
         <li>
-          <NavLink to="/">
+          <a href="/">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 26.39 26.39" space="preserve">
                 <g id="c14_house">
@@ -21,7 +18,7 @@ const NavBar = () => {
                 </g>
               </svg>
             </span>
-        </NavLink>
+        </a>
         </li>
         
         <li>

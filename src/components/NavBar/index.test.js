@@ -3,6 +3,8 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
 import NavBar from "./index";
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
 
 
 let container = null;
@@ -18,12 +20,15 @@ afterEach(() => {
 });
 
 
-it('should call display menu on click', async() => {
+it('should correctly be mount navBar', async() => {
+  const initialState = { theme:{value: "light"} }
+  const mockStore = configureStore()
+  let store;
+  store = mockStore(initialState)
 
   act(() => {
-    render(<NavBar/>, container);
+    render(<Provider store={store}><NavBar /></Provider>, container);
   });
-  
 });
 
 

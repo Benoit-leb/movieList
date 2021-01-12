@@ -17,18 +17,21 @@ afterEach(() => {
   container = null;
 });
 
+it('should correctly be mount movie item', async () => {
+
   act(() => {
-    render(<MovieItem item={
-     { id: '1',
+    const fake = {
+      id: '1',
       title: 'Oceans 8',
       category: 'Comedy',
       likes: 4,
       dislikes: 1,
-      deleted: 1}
-  }/>, container);
+      deleted: 1
+    }
+    render(<MovieItem item={fake}/>, container);
   });
 
-  
 });
+
 
 

@@ -1,33 +1,14 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import StyledMovieItem from "./StyledMovieItem";
-import { useSelector, useDispatch } from 'react-redux';
 import ToggleButton from "react-toggle-button";
-import {
-  setCurrentList,
-  getRefMovieList,
-  likeByDefault,
-  setMovieLike,
-  setMoviedisLike,
-  deleteItem
-} from "../../features/movieList";
 
 const MovieItem = (props) => {
   const [like, setLike] = useState(1);
-  const movieListRef = useSelector(getRefMovieList);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(likeByDefault(props.item.id));
-  }, [])
-
-  useEffect(() => {
-    dispatch(setCurrentList());
-  }, [movieListRef, dispatch])
 
   return (
     <div className="col-xs-12 col-sm-4 col-md-3 center-xs middle-xs">
       <StyledMovieItem>
-        <div className="cross-container" onClick={() => dispatch(deleteItem(props.item.id))}>
+        <div className="cross-container" onClick={() => props.onDelete()}>
           <svg className="cross" xmlns="http://www.w3.org/2000/svg" height="329pt" viewBox="0 0 329.26933 329" width="329pt"><path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" /></svg></div>
         <div className="title">{props.item.title}</div>
         <div className="category">{props.item.category}</div>
@@ -48,8 +29,8 @@ const MovieItem = (props) => {
             value={like}
             onToggle={(status) => {
               setLike(!status)
-              const action = status ? () => setMoviedisLike(props.item.id) : () => setMovieLike(props.item.id);
-              dispatch(action());
+              const action = status ? () => props.onDislike() : () => props.onLike();
+              action();
             }} />
         </div>
       </StyledMovieItem>

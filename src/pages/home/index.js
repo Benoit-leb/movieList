@@ -11,8 +11,11 @@ import {
   setCurrentList,
   setCurrentCategory,
   setPerPage,
-  setCurrentPage
-   } from "../../features/movieList";
+  setCurrentPage,
+  setMovieLike,
+  setMoviedisLike,
+  deleteItem
+   } from "../../app/features/movieList";
 import MovieItem from "../../components/MovieItem";
 import { Multiselect } from 'multiselect-react-dropdown';
 import ReactPaginate from 'react-paginate';
@@ -20,7 +23,7 @@ import StyledHome from "./StyledHome";
 
 const Home = () => {
   const movieListRef = useSelector(getRefMovieList);
-  const movieList = useSelector(getCurrentMovieList);
+  const currentMovieList = useSelector(getCurrentMovieList);
   const currentCategory = useSelector(getCurrentCategories);
   const categoriesList = useSelector(getCategories);
   const perPage = useSelector(getPerPage);
@@ -45,8 +48,13 @@ const Home = () => {
         <div className="list-container">
           <div className="row start-xs">
 
-            {movieList.map((el) => {
-              return (<MovieItem key={el.id} item={el}/>)
+             {currentMovieList.map((el) => {
+              return (<MovieItem
+                key={el.id}
+                item={el}
+                onDelete={() => dispatch(deleteItem(el.id))}
+                onLike={() => dispatch(setMovieLike(el.id))}
+                onDislike={() => dispatch(setMoviedisLike(el.id))}/>)
             })}
           </div>
         </div>

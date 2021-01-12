@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../Header/index.js";
 import GlobalStyle from "./GlobalStyle";
 import StyledPage from "./StyledPage";
-import { selectedTheme } from "../../features/useDarkMode"
+import { selectedTheme } from "../../app/features/useDarkMode"
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
 import { useSelector } from 'react-redux';

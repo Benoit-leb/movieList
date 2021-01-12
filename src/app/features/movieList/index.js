@@ -1,6 +1,6 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-import ListMovies from "../../assets/movie";
+import ListMovies from "../../../assets/movie";
 
 // list without deleted item
 const getList = (list) => {
@@ -94,7 +94,6 @@ const movieList = createSlice(
         return;
       },
       deleteItem:(state, action) => {
-        
         state.refList = getList(state.refList.map((el) => {
           if (el.id === action.payload){
             el.deleted = 1;

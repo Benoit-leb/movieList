@@ -2,9 +2,10 @@ import "isomorphic-fetch"
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
-import Page from "./index";
+import Home from "./index";
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
+
 
 let container = null;
 beforeEach(() => {
@@ -18,14 +19,25 @@ afterEach(() => {
   container = null;
 });
 
-it('should correctly be mount Page', async () => {
-  const initialState = { theme: { value: "light" } }
+it('should correctly be mount Home', async () => {
+  const initialState = { movieList: {
+    list: [],
+    refList: [],
+    currentList: [],
+    ListCategories: [],
+    currentCategories: [],
+    currentPage: 0,
+    perPage: 4,
+    totalPage: 1
+  }}
   const mockStore = configureStore()
   let store;
   store = mockStore(initialState)
 
   act(() => {
-    render(<Provider store={store}><Page /></Provider>, container);
+    render(<Provider store={store}><Home /></Provider>, container);
   });
 });
+
+
 

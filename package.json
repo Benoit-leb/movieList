@@ -1,5 +1,5 @@
 {
-  "name": "Benoit LEBRUN",
+  "name": "benoit-lebrun",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "flexboxgrid-sass": "^8.0.5",
+    "isomorphic-fetch": "^3.0.0",
     "multiselect-react-dropdown": "^1.6.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -16,13 +17,15 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-toggle-button": "^2.2.0",
+    "redux-mock-store": "^1.5.4",
     "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "jest": "run jest --watchAll"
   },
   "eslintConfig": {
     "extends": "react-app"
